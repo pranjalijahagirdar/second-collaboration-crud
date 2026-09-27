@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>second collaboration crud</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    <div class="card-body">
+                        <form id="studentForm">
+                            <div class="form-group">
+                                <label for="fname">First Name</label>
+                                <input required type="text" class="form-control" id="fname">
+                            </div>
+                            <div class="form-group">
+                                <label for="lname">Last Name</label>
+                                <input required type="text" class="form-control" id="lname">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input required type="text" class="form-control" id="email">
+                            </div>
+                            <div class="form-group">
+                                <label for="contact">Contact</label>
+                                <input required type="text" class="form-control" id="contact">
+                            </div>
+                            <button class="btn btn-info btn-sm btn-block" id="AddStudentBtn">Add Student</button>
+                            <button type="button" class="btn btn-danger btn-sm btn-block d-none" id="UpdateStudentBtn">Update Student</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-mb-6">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Sr.No</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Email</th>
+                            <th>Contact</th>
+                            <th>Edit</th>
+                            <th>Remove</th>
+                        </tr>
+                    </thead>
+                    <tbody id="studentList">
+                        <tr id="firstTr">
+                            <td>01</td>
+                            <td>Saniya</td>
+                            <td>Mishra</td>
+                            <td>saniya@gmail.com</td>
+                            <td>1786439801</td>
+                            <td class="text-center">
+                                <button onclick="onEdit(this)" class="btn text-primary btn-sm">EDIT</button>
+                            </td>
+                            <td class="text-center">
+                                <button onclick="onDelete(this)" class="btn text-danger btn-sm">DELETE</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="./assets/js/app.js"></script>
+</body>
+</html>
