@@ -10,6 +10,51 @@ const AddStudentBtn = document.getElementById("AddStudentBtn")
 const UpdateStudentBtn = document.getElementById("UpdateStudentBtn")
 
 
-
 const BASE_URL = `https://crud-6b7ce-default-rtdb.firebaseio.com`;
 const STUDENT_URL = `${BASE_URL}/students.json`;
+
+
+// templating
+function Templating(arr){
+    let result=``;
+    arr.forEach((ele,i )=>{
+        result+=`<tr id="firstTr">
+                            <td>${i+1}</td>
+                            <td>${ele.fname}</td>
+                            <td>${ele.lname}</td>
+                            <td>${ele.email}</td>
+                            <td>${ele.contact}</td>
+                            <td class="text-center">
+                                <button onclick="onEdit(this)" class="btn text-primary btn-sm">EDIT</button>
+                            </td>
+                            <td class="text-center">
+                                <button onclick="onDelete(this)" class="btn text-danger btn-sm">DELETE</button>
+                            </td>
+                        </tr>
+        `
+        
+    });
+    studentList.innerHTML=result;
+}
+
+
+
+
+let StdArr=[];
+// read functnality
+function OnreadTR(arr){
+    let xhr= new XMLHttpRequest();
+    xhr.open("GET",STUDENT_URL);
+    xhr.send(null);
+    xhr.onload = function(){
+        if(xhr.status >= 200 && xhr.status <=299){
+            let res = JSON.parse(xhr.response)
+            for(const key in res){
+                res[key].id=key;
+                StdArr.unshift(res[key])
+            }
+            Templating(StdArr);
+        }
+    }
+}
+OnreadTR()
