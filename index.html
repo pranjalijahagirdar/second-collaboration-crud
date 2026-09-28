@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>second collaboration crud</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+        <link rel="stylesheet" href="./assets/css/style.css">
 </head>
+
 <body>
     <div class="container mt-5">
         <div class="row">
@@ -30,7 +34,8 @@
                                 <input required type="text" class="form-control" id="contact">
                             </div>
                             <button class="btn btn-info btn-sm btn-block" id="AddStudentBtn">Add Student</button>
-                            <button type="button" class="btn btn-danger btn-sm btn-block d-none" id="UpdateStudentBtn">Update Student</button>
+                            <button type="button" class="btn btn-danger btn-sm btn-block d-none"
+                                id="UpdateStudentBtn">Update Student</button>
                         </form>
                     </div>
                 </div>
@@ -67,8 +72,15 @@
             </div>
         </div>
     </div>
-    
+
+    <div id="spinner" class="d-none">
+        <div class="spinner-border" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="./assets/js/app.js"></script>
 </body>
+
 </html>
