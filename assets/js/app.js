@@ -18,7 +18,7 @@ const STUDENT_URL = `${BASE_URL}/students.json`;
 function Templating(arr){
     let result=``;
     arr.forEach((ele,i )=>{
-        result+=`<tr id="firstTr">
+        result+=`<tr id="${ele.id}">
                             <td>${i+1}</td>
                             <td>${ele.fname}</td>
                             <td>${ele.lname}</td>
@@ -58,3 +58,52 @@ function OnreadTR(arr){
     }
 }
 OnreadTR()
+
+//delete
+function onDelete(ele){
+
+ Swal.fire({
+  title: "Are you sure?",
+  text: "You won't be able to revert this!",
+  icon: "warning",
+  showCancelButton: true,
+  confirmButtonColor: "#3085d6",
+  cancelButtonColor: "#d33",
+  confirmButtonText: "Yes, delete it!"
+}).then((result) => {
+  if (result.isConfirmed){
+let DELETE_ID = ele.closest("tr").id;
+    cl(DELETE_ID)
+
+    let xhr = new XMLHttpRequest();
+    xhr.open("DELETE", `${BASE_URL}/students/${DELETE_ID}.json`);
+    xhr.send(null);
+    xhr.onload = function(){
+        if(xhr.status >= 200 && xhr.status <= 299){
+            let res = JSON.parse(xhr.response);
+            cl(res)
+            ele.closest("tr").remove();
+        }else{
+            cl("error")
+        }
+    }
+  }
+});
+
+
+
+
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
